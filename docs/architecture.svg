@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="VaidyaGraph architecture diagram">
+  <defs>
+    <!-- Gradient background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <!-- Node gradients -->
+    <linearGradient id="nodeAllo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="nodeAyur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="nodeHomeo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="nodeSafety" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="nodeInteg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="nodePatient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Arrow marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+
+    <!-- Subtle drop-shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.35"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#334155" stroke-opacity="0.25" stroke-width="1">
+    <path d="M0 100 H1200 M0 200 H1200 M0 300 H1200 M0 400 H1200 M0 500 H1200"/>
+    <path d="M150 0 V630 M300 0 V630 M450 0 V630 M600 0 V630 M750 0 V630 M900 0 V630 M1050 0 V630"/>
+  </g>
+
+  <!-- Title -->
+  <g font-family="Inter, system-ui, sans-serif" fill="white">
+    <text x="60" y="60" font-size="34" font-weight="800" letter-spacing="-0.5">VaidyaGraph</text>
+    <text x="60" y="88" font-size="16" fill="#94a3b8" font-weight="500">
+      Agentic Preventive Diagnosis · LangGraph · FastAPI · Streamlit
+    </text>
+  </g>
+
+  <!-- Subtitle / pattern badge (top right) -->
+  <g transform="translate(1140, 58)" text-anchor="end" font-family="Inter, system-ui, sans-serif">
+    <rect x="-280" y="-22" width="280" height="28" rx="14" fill="#0d6efd" fill-opacity="0.18" stroke="#3b82f6" stroke-opacity="0.6"/>
+    <text x="-18" y="-3" font-size="13" fill="#bfdbfe" font-weight="600">Fan-out · Safety Gate · Fan-in</text>
+  </g>
+
+  <!-- =========================
+       LAYER 1: Patient input
+       ========================= -->
+  <g transform="translate(450, 130)" filter="url(#shadow)">
+    <rect width="300" height="60" rx="12" fill="url(#nodePatient)"/>
+    <text x="150" y="30" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600">
+      👤  Patient
+    </text>
+    <text x="150" y="48" text-anchor="middle" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="12">
+      symptoms + history
+    </text>
+  </g>
+
+  <!-- Fan-out arrows -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M550 190 Q 260 225 185 245"/>
+    <path d="M600 190 L 600 245"/>
+    <path d="M650 190 Q 940 225 1015 245"/>
+  </g>
+
+  <!-- =========================
+       LAYER 2: Three specialists (parallel)
+       ========================= -->
+  <!-- Allopathy -->
+  <g transform="translate(60, 250)" filter="url(#shadow)">
+    <rect width="250" height="100" rx="12" fill="url(#nodeAllo)"/>
+    <text x="125" y="34" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">
+      🩺  Allopathy
+    </text>
+    <text x="125" y="58" text-anchor="middle" fill="#dbeafe" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Differential diagnosis
+    </text>
+    <text x="125" y="76" text-anchor="middle" fill="#dbeafe" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Tests · Drug classes · Red flags
+    </text>
+    <text x="125" y="94" text-anchor="middle" fill="#bfdbfe" font-family="Inter, system-ui, sans-serif" font-size="11" font-style="italic">
+      strict evidence-based reasoning
+    </text>
+  </g>
+
+  <!-- Ayurveda -->
+  <g transform="translate(475, 250)" filter="url(#shadow)">
+    <rect width="250" height="100" rx="12" fill="url(#nodeAyur)"/>
+    <text x="125" y="34" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">
+      🌿  Ayurveda
+    </text>
+    <text x="125" y="58" text-anchor="middle" fill="#d1fae5" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Vata · Pitta · Kapha
+    </text>
+    <text x="125" y="76" text-anchor="middle" fill="#d1fae5" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Agni · Ama · Ahara · Vihara
+    </text>
+    <text x="125" y="94" text-anchor="middle" fill="#a7f3d0" font-family="Inter, system-ui, sans-serif" font-size="11" font-style="italic">
+      Indian herbs + lifestyle
+    </text>
+  </g>
+
+  <!-- Homeopathy -->
+  <g transform="translate(890, 250)" filter="url(#shadow)">
+    <rect width="250" height="100" rx="12" fill="url(#nodeHomeo)"/>
+    <text x="125" y="34" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">
+      💊  Homeopathy
+    </text>
+    <text x="125" y="58" text-anchor="middle" fill="#e9d5ff" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Totality of symptoms
+    </text>
+    <text x="125" y="76" text-anchor="middle" fill="#e9d5ff" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Miasms · Keynote remedies
+    </text>
+    <text x="125" y="94" text-anchor="middle" fill="#d8b4fe" font-family="Inter, system-ui, sans-serif" font-size="11" font-style="italic">
+      Hahnemannian principles
+    </text>
+  </g>
+
+  <!-- Parallel label -->
+  <g font-family="Inter, system-ui, sans-serif" text-anchor="middle">
+    <rect x="540" y="218" width="120" height="22" rx="11" fill="#1e293b" stroke="#475569"/>
+    <text x="600" y="233" fill="#cbd5e1" font-size="11" font-weight="600">parallel super-step</text>
+  </g>
+
+  <!-- Fan-in arrows to safety -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M185 350 Q 320 395 450 408"/>
+    <path d="M600 350 L 600 408"/>
+    <path d="M1015 350 Q 880 395 750 408"/>
+  </g>
+
+  <!-- =========================
+       LAYER 3: Safety gate
+       ========================= -->
+  <g transform="translate(450, 410)" filter="url(#shadow)">
+    <rect width="300" height="70" rx="12" fill="url(#nodeSafety)"/>
+    <text x="150" y="30" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700">
+      🛡️  Safety Officer
+    </text>
+    <text x="150" y="50" text-anchor="middle" fill="#fef3c7" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Drug-herb interactions · Contraindications · Redundancy
+    </text>
+    <text x="150" y="64" text-anchor="middle" fill="#fde68a" font-family="Inter, system-ui, sans-serif" font-size="11" font-style="italic">
+      adversarial cross-check @ temp 0.1
+    </text>
+  </g>
+
+  <!-- Safety -> Integrator -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M600 480 L 600 510"/>
+  </g>
+
+  <!-- =========================
+       LAYER 4: Integrator
+       ========================= -->
+  <g transform="translate(450, 512)" filter="url(#shadow)">
+    <rect width="300" height="70" rx="12" fill="url(#nodeInteg)"/>
+    <text x="150" y="30" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700">
+      🧭  Senior Doctor
+    </text>
+    <text x="150" y="50" text-anchor="middle" fill="#e0f2fe" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Unified plan · Convergence · Divergence · Next steps
+    </text>
+    <text x="150" y="64" text-anchor="middle" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="11" font-style="italic">
+      final synthesis — safety folded in
+    </text>
+  </g>
+
+  <!-- =========================
+       SIDE CALLOUT: follow-up Q&A
+       ========================= -->
+  <g transform="translate(795, 512)">
+    <rect width="345" height="70" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-dasharray="6 4"/>
+    <text x="172" y="30" text-anchor="middle" fill="#bfdbfe" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700">
+      💬  Follow-up Q&amp;A Agent
+    </text>
+    <text x="172" y="50" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="12">
+      Reads frozen state + chat history
+    </text>
+    <text x="172" y="64" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="11" font-style="italic">
+      grounded answers, cites each system
+    </text>
+  </g>
+  <!-- Dashed arrow from integrator into Q&A -->
+  <g stroke="#3b82f6" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#arrow)">
+    <path d="M750 547 L 792 547"/>
+  </g>
+
+  <!-- Footer strip -->
+  <g font-family="Inter, system-ui, sans-serif">
+    <text x="60" y="605" fill="#64748b" font-size="12">
+      github.com/&lt;your-username&gt;/VaidyaGraph
+    </text>
+    <text x="1140" y="605" text-anchor="end" fill="#64748b" font-size="12">
+      Portfolio demo · Not a medical device
+    </text>
+  </g>
+</svg>
